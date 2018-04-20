@@ -1,0 +1,32 @@
+﻿@model GuestResponse
+
+<div class="bg-primary p-2 text-white text-center">
+    <h2>RSVP</h2>
+</div>
+
+<form asp-action="Respond" method="post" class="m-4">
+    <div class="form-group">
+        <label>Your Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Your Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Your Phone Number</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Will You Attend?</label>
+        <select asp-for="WillAttend" class="form-control">
+            <option value="">Choose an option</option>
+            <option value="true">Yes, I'll be there</option>
+            <option value="false">No, I can't come</option>
+        </select>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit RSVP</button>
+    </div>
+</form>

@@ -1,0 +1,40 @@
+﻿@model Product
+
+<h3 class="p-2 bg-primary text-white text-center">Update Product</h3>
+
+<form asp-action="UpdateProduct" method="post">
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Category"></label>
+        <select class="form-control" asp-for="CategoryId">
+            @if (Model.Id == 0) {
+                <option disabled selected>Choose Category</option>
+            }
+            @foreach (Category c in ViewBag.Categories) {
+                <option selected=@(Model.Category?.Id == c.Id)
+                        value="@c.Id">
+                    @c.Name
+                    </option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PurchasePrice"></label>
+        <input asp-for="PurchasePrice" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RetailPrice"></label>
+        <input asp-for="RetailPrice" class="form-control" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

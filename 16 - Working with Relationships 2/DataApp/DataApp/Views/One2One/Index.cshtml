@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DataApp.Models.ContactDetails>
+@{
+    ViewData["Title"] = "ContactDetails";
+    Layout = "_Layout";
+}
+<table class="table table-striped table-sm">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th></th>
+        <th class="table-dark text-center" colspan="4">Supplier</th>
+    </tr>
+    @foreach (var s in Model) {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.Phone</td>
+            <td>
+                <form>
+                    <button class="btn btn-sm btn-warning"
+                            asp-action="Edit" asp-route-id="@s.Id">
+                        Edit
+                    </button>
+                </form>
+            </td>
+            @if (s.Supplier != null) {
+                <td class="table-dark">@s.Supplier.Id</td>
+                <td class="table-dark">@s.Supplier.Name</td>
+                <td class="table-dark">@s.Supplier.City</td>
+                <td class="table-dark">@s.Supplier.State</td>
+            } else {
+                <td colspan="4" class="table-dark text-center">
+                    No Related Supplier
+                </td>
+            }
+        </tr>
+    }
+</table>
+<a class="btn btn-primary" asp-action="Create">Create</a>

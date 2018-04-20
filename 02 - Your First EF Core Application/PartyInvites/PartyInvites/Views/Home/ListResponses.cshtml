@@ -1,0 +1,20 @@
+﻿@model IEnumerable<GuestResponse>
+
+<h3 class="bg-primary p-2 text-white text-center">Here is the list of people who have responded</h3>
+
+<div class="container-fluid">
+    <div class="row p-1">
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Email</div>
+        <div class="col font-weight-bold">Phone</div>
+        <div class="col font-weight-bold">Attending</div>
+    </div>
+    @foreach (GuestResponse r in Model) {
+        <div class="row p-1">
+            <div class="col">@r.Name</div>
+            <div class="col">@r.Email</div>
+            <div class="col">@r.Phone</div>
+            <div class="col">@(r.WillAttend == true ? "Yes" : "No")</div>
+        </div>
+    }
+</div>

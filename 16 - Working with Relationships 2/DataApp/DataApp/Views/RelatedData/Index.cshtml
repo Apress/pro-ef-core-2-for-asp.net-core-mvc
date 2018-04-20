@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DataApp.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Suppliers";
+    Layout = "_Layout";
+}
+
+<table class="table table-striped table-sm">
+    <tr><th>ID</th><th>Name</th><th>City</th><th>State</th></tr>
+    @foreach (var s in Model.OrderBy(s => s.Id)) {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.City</td>
+            <td>@s.State</td>
+        </tr>
+        @if (s.Products != null) {
+            @foreach (var p in s.Products) {
+                <tr class="table-dark">
+                    <td></td>
+                    <td>@p.Name</td>
+                    <td>@p.Category</td>
+                    <td>@p.Price</td>
+                </tr>
+            }
+        }
+    }
+</table>

@@ -1,0 +1,43 @@
+﻿@model ValueTuple<Supplier, IEnumerable<Supplier>>
+@{
+    int counter = 0;
+}
+
+<form asp-action="Change" method="post">
+    <input type="hidden" name="Id" value="@Model.Item1.Id" />
+    <input type="hidden" name="Name" value="@Model.Item1.Name" />
+    <input type="hidden" name="City" value="@Model.Item1.City" />
+    <input type="hidden" name="State" value="@Model.Item1.State" />
+
+    @foreach (Product p in Model.Item1.Products) {
+        <input type="hidden" name="Products[@counter].Id" value="@p.Id" />
+        <input type="hidden" name="Products[@counter].Name" value="@p.Name" />
+        <input type="hidden" name="Products[@counter].Category"
+               value="@p.Category" />
+            <input type="hidden" name="Products[@counter].Price" value="@p.Price" />
+
+            <div class="row">
+                <div class="col">@p.Name</div>
+                <div class="col">@p.Category</div>
+                <div class="col">
+                    <select name="Products[@counter].SupplierId">
+                        @foreach (Supplier s in Model.Item2) {
+                            if (p.Supplier == s) {
+                                <option selected value="@s.Id">@s.Name</option>
+                            } else {
+                                <option value="@s.Id">@s.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+
+        counter++;
+    }
+    <div class="row">
+        <div class="col text-center m-1">
+            <button class="btn btn-sm btn-danger" type="submit">Save</button>
+            <a class="btn btn-sm btn-secondary" asp-action="Index">Cancel</a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+﻿@model Order
+@{
+    Layout = "~/Views/Store/_Layout.cshtml";
+}
+
+<h2 class="m-3">Your Details</h2>
+
+<form asp-action="CreateOrder" method="post" class="m-4">
+    <div class="form-group">
+        <label>Your Name:</label>
+        <input asp-for="CustomerName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Your Address</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Your State:</label>
+        <input asp-for="State" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Your Zip Code:</label>
+        <input asp-for="ZipCode" class="form-control" />
+    </div>
+    <div class="text-center m-2">
+        <button type="submit" class="btn btn-primary">Place Order</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

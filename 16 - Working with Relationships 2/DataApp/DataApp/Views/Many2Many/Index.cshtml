@@ -1,0 +1,47 @@
+﻿@model DataApp.Controllers.ProductShipmentViewModel
+@{
+    ViewData["Title"] = "Many To Many";
+    Layout = "_Layout";
+}
+
+<h4>Shipments</h4>
+<table class="table table-sm table-striped">
+    <tr><th>ID</th><th>Name</th><th>Product Names</th><th></th></tr>
+    @if (Model.Shipments?.Count() > 0) {
+        @foreach (Shipment s in Model.Shipments) {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.ShipperName</td>
+                <td>
+                    @(string.Join(", ", s.ProductShipments
+                        .Select(ps => ps.Product.Name)))
+                </td>
+                <td>
+                    <a asp-action="EditShipment" asp-route-id="@s.Id"
+                       class="btn btn-sm btn-primary">Edit</a>
+                </td>
+            </tr>
+        }
+    } else {
+        <tr><td colspan="3" class="text-center">No Data</td></tr>
+    }
+</table>
+
+<h4>Products</h4>
+<table class="table table-sm table-striped">
+    <tr><th>ID</th><th>Name</th><th>Shipment Names</th></tr>
+    @if (Model.Products?.Count() > 0) {
+        @foreach (Product p in Model.Products) {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td colspan="2">
+                    @(string.Join(", ", p.ProductShipments
+                        .Select(ps => ps.Shipment.ShipperName)))
+                </td>
+            </tr>
+        }
+    } else {
+        <tr><td colspan="3" class="text-center">No Data</td></tr>
+    }
+</table>

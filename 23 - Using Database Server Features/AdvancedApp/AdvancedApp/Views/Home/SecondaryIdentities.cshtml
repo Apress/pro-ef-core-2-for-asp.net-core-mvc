@@ -1,0 +1,26 @@
+﻿<h3 class="bg-info p-2 text-center text-white">Secondary Identities</h3>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Name</th>
+            <th>Active Use</th>
+            <th>Foreign SSN</th>
+            <th>Foreign FamilyName</th>
+            <th>Foreign FirstName</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="placeholder"><td colspan="6" class="text-center">No Data</td></tr>
+        @foreach (SecondaryIdentity ident in ViewBag.Secondaries) {
+            <tr>
+                <td>@ident.Id</td>
+                <td>@ident.Name</td>
+                <td>@ident.InActiveUse</td>
+                <td>@(ident.PrimarySSN ?? "(null)")</td>
+                <td>@(ident.PrimaryFirstName ?? "(null)")</td>
+                <td>@(ident.PrimaryFamilyName ?? "(null)")</td>
+            </tr>
+        }
+    </tbody>
+</table>

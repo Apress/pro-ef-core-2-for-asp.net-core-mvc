@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DataApp.Models.Product>
+@{
+    ViewData["Title"] = "Products";
+    Layout = "_Layout";
+}
+
+<div class="m-1 p-2">
+    <form asp-action="Index" method="get" class="form-inline">
+        <label class="m-1">Category:</label>
+        <select name="category" class="form-control">
+            <option value="">All</option>
+            <option selected="@(ViewBag.category == "Watersports")">
+                Watersports
+            </option>
+            <option selected="@(ViewBag.category == "Soccer")">Soccer</option>
+            <option selected="@(ViewBag.category == "Chess")">Chess</option>
+        </select>
+        <label class="m-1">Min Price:</label>
+        <input class="form-control" name="price" value="@ViewBag.price" />
+        <div class="form-check m-1">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"
+                       name="includeRelated" value="true"
+                       checked="@(ViewBag.includeRelated == true)" />
+                Related Data
+            </label>
+            <input type="hidden" name="includeRelated" value="false" />
+        </div>
+        <button class="btn btn-primary m-1">Filter</button>
+    </form>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            @if (ViewBag.includeRelated) {
+                <th>Supplier</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model) {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td>@p.Category</td>
+                <td>$@p.Price.ToString("F2")</td>
+                @if (ViewBag.includeRelated) {
+                    <td>@p.Supplier?.Name</td>
+                }
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <a asp-action="Edit" class="btn btn-sm btn-warning"
+                           asp-route-id="@p.Id">
+                            Edit
+                        </a>
+                        <input type="hidden" name="id" value="@p.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" class="btn btn-primary">Create New Product</a>

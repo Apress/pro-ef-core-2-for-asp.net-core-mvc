@@ -1,0 +1,13 @@
+﻿@using ExistingDb.Models.Manual
+@model Shoe
+
+<label><strong>Style:</strong></label>
+<select asp-for="StyleId" class="form-control">
+    @foreach (Style s in ViewBag.Styles) {
+        if (s.UniqueIdent == Model.StyleId) {
+            <option value="@s.UniqueIdent" selected>@s.StyleName</option>
+        } else {
+            <option value="@s.UniqueIdent">@s.StyleName</option>
+        }
+    }
+</select>

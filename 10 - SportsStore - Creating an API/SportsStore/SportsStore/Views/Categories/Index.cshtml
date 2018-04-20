@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Category>
+
+<h3 class="p-2 bg-primary text-white text-center">Categories</h3>
+
+<div class="text-center">
+    @Html.Partial("Pages", Model)
+    @{
+        ViewBag.searches = new string[] { "Name", "Description" };
+        ViewBag.sorts = new string[] { "Name", "Description" };
+    }
+    @Html.Partial("PageOptions", Model)
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-1 font-weight-bold">Id</div>
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Description</div>
+        <div class="col-3"></div>
+    </div>
+    @if (ViewBag.EditId == null) {
+        <form asp-action="AddCategory" method="post">
+            @Html.Partial("CategoryEditor", new Category())
+        </form>
+    }
+    @foreach (Category c in Model) {
+        @if (c.Id == ViewBag.EditId) {
+            <form asp-action="UpdateCategory" method="post">
+                <input type="hidden" name="Id" value="@c.Id" />
+                @Html.Partial("CategoryEditor", c)
+            </form>
+        } else {
+            <div class="row p-2">
+                <div class="col-1">@c.Id</div>
+                <div class="col">@c.Name</div>
+                <div class="col">@c.Description</div>
+                <div class="col-3">
+                    <form asp-action="DeleteCategory" method="post">
+                        <input type="hidden" name="Id" value="@c.Id" />
+                        <a asp-action="EditCategory" asp-route-id="@c.Id"
+                           class="btn btn-outline-primary">Edit</a>
+                        <button type="submit" class="btn btn-outline-danger">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+</div>

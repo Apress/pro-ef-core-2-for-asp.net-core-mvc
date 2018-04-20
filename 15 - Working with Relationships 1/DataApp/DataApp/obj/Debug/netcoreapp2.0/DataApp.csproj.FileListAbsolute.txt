@@ -1,0 +1,10 @@
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\bin\Debug\netcoreapp2.0\DataApp.deps.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\bin\Debug\netcoreapp2.0\DataApp.runtimeconfig.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\bin\Debug\netcoreapp2.0\DataApp.runtimeconfig.dev.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\bin\Debug\netcoreapp2.0\DataApp.dll
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\bin\Debug\netcoreapp2.0\DataApp.pdb
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\obj\Debug\netcoreapp2.0\DataApp.csproj.CoreCompileInputs.cache
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\obj\Debug\netcoreapp2.0\DataApp.AssemblyInfoInputs.cache
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\obj\Debug\netcoreapp2.0\DataApp.AssemblyInfo.cs
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\obj\Debug\netcoreapp2.0\DataApp.dll
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\DataApp\DataApp\obj\Debug\netcoreapp2.0\DataApp.pdb

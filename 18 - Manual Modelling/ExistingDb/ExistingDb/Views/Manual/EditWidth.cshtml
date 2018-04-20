@@ -1,0 +1,13 @@
+﻿@using ExistingDb.Models.Manual
+@model Shoe
+
+<label>Width:</label>
+<select asp-for="WidthId" class="form-control">
+    @foreach (ShoeWidth w in ViewBag.Widths) {
+        if (w.UniqueIdent == Model.WidthId) {
+            <option value="@w.UniqueIdent" selected>@w.WidthName</option>
+        } else {
+            <option value="@w.UniqueIdent">@w.WidthName</option>
+        }
+    }
+</select>

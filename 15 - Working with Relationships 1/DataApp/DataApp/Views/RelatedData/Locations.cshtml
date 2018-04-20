@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DataApp.Models.ContactLocation>
+@{
+    ViewData["Title"] = "ContactLocations";
+    Layout = "_Layout";
+}
+<table class="table table-striped table-sm">
+    <tr><th>ID</th><th>Name</th></tr>
+    @foreach (var s in Model) {
+        <tr><td>@s.Id</td><td>@s.LocationName</td></tr>
+    }
+</table>

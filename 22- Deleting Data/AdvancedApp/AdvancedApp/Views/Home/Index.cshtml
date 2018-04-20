@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Advanced Features";
+    Layout = "_Layout";
+}
+<h3 class="bg-info p-2 text-center text-white">Employees</h3>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>SSN</th>
+            <th>First Name</th>
+            <th>Family Name</th>
+            <th>Salary</th>
+            <th>Other Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="placeholder"><td colspan="8" class="text-center">No Data</td></tr>
+        @foreach (Employee e in Model) {
+            <tr>
+                <td>@e.SSN</td>
+                <td>@e.FirstName</td>
+                <td>@e.FamilyName</td>
+                <td>@e.Salary</td>
+                <td>@(e.OtherIdentity?.Name ?? "(None)")</td>
+                <td class="text-right">
+                    <form>
+                        <input type="hidden" name="SSN" value="@e.SSN" />
+                        <input type="hidden" name="Firstname" value="@e.FirstName" />
+                        <input type="hidden" name="FamilyName"
+                               value="@e.FamilyName" />
+                        <input type="hidden" name="RowVersion"
+                               asp-for="@e.RowVersion" />
+                        <input type="hidden" name="OtherIdentity.Id"
+                               value="@e.OtherIdentity.Id" />
+                        <button type="submit" asp-action="Delete" formmethod="post"
+                                class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
+                        <button type="submit" asp-action="Edit" formmethod="get"
+                                class="btn btn-sm btn-primary">
+                            Edit
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.Partial("SecondaryIdentities")
+<div class="text-center">
+    <a asp-action="Edit" class="btn btn-primary">Create</a>
+</div>

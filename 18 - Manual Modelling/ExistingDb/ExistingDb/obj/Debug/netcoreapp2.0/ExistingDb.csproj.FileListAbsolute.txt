@@ -1,0 +1,10 @@
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\bin\Debug\netcoreapp2.0\ExistingDb.deps.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\bin\Debug\netcoreapp2.0\ExistingDb.runtimeconfig.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\bin\Debug\netcoreapp2.0\ExistingDb.runtimeconfig.dev.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\bin\Debug\netcoreapp2.0\ExistingDb.dll
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\bin\Debug\netcoreapp2.0\ExistingDb.pdb
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\obj\Debug\netcoreapp2.0\ExistingDb.csproj.CoreCompileInputs.cache
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\obj\Debug\netcoreapp2.0\ExistingDb.AssemblyInfoInputs.cache
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\obj\Debug\netcoreapp2.0\ExistingDb.AssemblyInfo.cs
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\obj\Debug\netcoreapp2.0\ExistingDb.dll
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\ExistingDb\ExistingDb\obj\Debug\netcoreapp2.0\ExistingDb.pdb

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Advanced Features";
+    Layout = "_Layout";
+}
+<h3 class="bg-info p-2 text-center text-white">Deleted Employees</h3>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>SSN</th>
+            <th>First Name</th>
+            <th>Family Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="placeholder"><td colspan="4" class="text-center">No Data</td></tr>
+        @foreach (Employee e in Model) {
+            <tr>
+                <td>@e.SSN</td>
+                <td>@e.FirstName</td>
+                <td>@e.FamilyName</td>
+                <td class="text-right">
+                    <form method="post">
+                        <input type="hidden" name="SSN" value="@e.SSN" />
+                        <input type="hidden" name="FirstName" value="@e.FirstName" />
+                        <input type="hidden" name="FamilyName"
+                               value="@e.FamilyName" />
+                        <button asp-action="Restore"
+                                class="btn btn-sm btn-success">
+                            Restore
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

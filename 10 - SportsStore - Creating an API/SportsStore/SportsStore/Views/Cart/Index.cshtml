@@ -1,0 +1,62 @@
+﻿@model Cart
+@{
+    Layout = "~/Views/Store/_Layout.cshtml";
+}
+
+<h2 class="m-3">Your Cart</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col font-weight-bold">Quantity</div>
+        <div class="col font-weight-bold">Product</div>
+        <div class="col font-weight-bold text-right">Price</div>
+        <div class="col font-weight-bold text-right">Subtotal</div>
+        <div class="col"></div>
+    </div>
+    @if (Model.Selections.Count() == 0) {
+        <div class="row mt-2"><div class="col-12"><h4>Cart is Empty</h4></div></div>
+    } else {
+        @foreach (OrderLine line in Model.Selections) {
+            <div class="row mt-1">
+                <div class="col">@line.Quantity</div>
+                <div class="col">@line.Product.Name</div>
+                <div class="col text-right">
+                    $@line.Product.RetailPrice.ToString("f2")
+                </div>
+                <div class="col text-right">
+                    $@((line.Product.RetailPrice
+                        * line.Quantity).ToString("f2"))
+                </div>
+                <div class="col">
+                    <form asp-action="RemoveFromCart">
+                        <button type="submit" name="productId"
+                                value="@line.ProductId"
+                                class="btn btn-sm btn-outline-danger">
+                            Remove
+                        </button>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+    <div class="row mt-2">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col text-right font-weight-bold">Total:</div>
+        <div class="col text-right font-weight-bold">
+            $@(Model.Selections.Sum(l => l.Product.RetailPrice
+                * l.Quantity).ToString("f2"))
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div class="text-center m-2">
+    @if (ViewBag.returnUrl != null) {
+        <a href="@ViewBag.returnUrl" class="btn btn-outline-primary">
+            Continue Shopping
+        </a>
+    }
+    <a asp-action="CreateOrder" class="btn btn-primary">
+        Place Order
+    </a>
+</div>

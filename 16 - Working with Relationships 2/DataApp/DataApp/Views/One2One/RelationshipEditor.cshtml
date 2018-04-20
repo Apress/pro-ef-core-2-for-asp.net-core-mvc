@@ -1,0 +1,33 @@
+﻿@model long
+
+<div class="p-1 m-1">
+    @foreach (Supplier s in ViewBag.Suppliers) {
+        @if (s.Id != Model) {
+            <div class="form-row">
+                <div class="form-group col">
+                    <input type="radio" name="targetSupplierId" value="@s.Id" />
+                    @if (s.Contact == null) {
+                        <input type="hidden" name="spares" value="@s.Id" />
+                    }
+                </div>
+                <div class="form-group col-1">
+                    <label class="form-control-label">@s.Id</label>
+                </div>
+                <div class="form-group col">
+                    <label class="form-control-label">@s.Name</label>
+                </div>
+                <div class="form-group col">
+                    <label class="form-control-label">@s.City</label>
+                </div>
+                <div class="form-group col">
+                    <label class="form-control-label">@s.State</label>
+                </div>
+                <div class="form-group col">
+                    <label class="form-control-label">
+                        @(s.Contact == null ? "(None)" : s.Contact.Name)
+                    </label>
+                </div>
+            </div>
+        }
+    }
+</div>

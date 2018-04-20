@@ -1,0 +1,35 @@
+﻿@model DataApp.Models.Product
+
+<input name="original.Supplier.Id" value="@Model.Supplier?.Id" type="hidden" />
+<input name="original.Supplier.Name" value="@Model.Supplier?.Name" type="hidden" />
+<input name="original.Supplier.City" value="@Model.Supplier?.City" type="hidden" />
+<input name="original.Supplier.State" value="@Model.Supplier?.State" type="hidden" />
+
+<input type="hidden" asp-for="Supplier.Id" />
+<div class="form-group">
+    <label asp-for="Supplier.Name"></label>
+    <input asp-for="Supplier.Name" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Supplier.City"></label>
+    <input asp-for="Supplier.City" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Supplier.State"></label>
+    <input asp-for="Supplier.State" class="form-control" />
+</div>
+@if (Model.Supplier?.Contact != null) {
+    <div class="form-group">
+        <label asp-for="Supplier.Contact.Name"></label>
+        <input asp-for="Supplier.Contact.Name" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Supplier.Contact.Phone"></label>
+        <input asp-for="Supplier.Contact.Phone" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Supplier.Contact.Location.LocationName"></label>
+        <input asp-for="Supplier.Contact.Location.LocationName"
+               class="form-control" readonly />
+    </div>
+}

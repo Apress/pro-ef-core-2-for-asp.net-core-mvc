@@ -1,0 +1,61 @@
+﻿<div class="container-fluid mt-2">
+    <div class="row m-1">
+        <div class="col"></div>
+        <div class="col-1">
+            <label class="col-form-label">Search</label>
+        </div>
+        <div class="col-3">
+            <select form="pageform" name="options.searchpropertyname"
+                    class="form-control">
+                @foreach (string s in ViewBag.searches as string[]) {
+                    <option value="@s"
+                            selected="@(Model.Options.SearchPropertyName == s)">
+                        @(s.IndexOf('.') == -1 ? s : s.Substring(0, s.IndexOf('.')))
+                    </option>
+
+                }
+            </select>
+        </div>
+        <div class="col">
+            <input form="pageform" class="form-control" name="options.searchterm"
+                   value="@Model.Options.SearchTerm" />
+        </div>
+
+        <div class="col-1 text-right">
+            <button form="pageform" class="btn btn-secondary" type="submit">
+                Search
+            </button>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row m-1">
+        <div class="col"></div>
+        <div class="col-1">
+            <label class="col-form-label">Sort</label>
+        </div>
+        <div class="col-3">
+            <select form="pageform" name="options.OrderPropertyName"
+                    class="form-control">
+                @foreach (string s in ViewBag.sorts as string[]) {
+                    <option value="@s"
+                            selected="@(Model.Options.OrderPropertyName == s)">
+                        @(s.IndexOf('.') == -1 ? s : s.Substring(0, s.IndexOf('.')))
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="col form-check form-check-inline">
+            <input form="pageform" type="checkbox" name="Options.DescendingOrder"
+                   id="Options.DescendingOrder"
+                   class="form-check-input" value="true"
+                   checked="@Model.Options.DescendingOrder" />
+            <label class="form-check-label">Descending Order</label>
+        </div>
+        <div class="col-1 text-right">
+            <button form="pageform" class="btn btn-secondary" type="submit">
+                Sort
+            </button>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

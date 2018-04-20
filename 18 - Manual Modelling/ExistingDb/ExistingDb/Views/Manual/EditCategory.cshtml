@@ -1,0 +1,26 @@
+﻿@using ExistingDb.Models.Manual
+@model Shoe
+
+@{ int index = 0; }
+
+@foreach (var junc in Model.Categories) {
+    <input type="hidden" name="oldJunctions[@index].Id" value="@junc.Id" />
+    <input type="hidden" name="oldJunctions[@index].CategoryId"
+           value="@junc.CategoryId" />
+    index++;
+}
+
+@foreach (Category c in ViewBag.Categories) {
+    <div class="form-group col">
+        <label class="form-check-label">
+            @if (c.Shoes?.Any(s => s.ShoeId == Model.Id) == true) {
+                <input type="checkbox" name="newCategoryIds" value="@c.Id"
+                       checked class="form-check-input" />
+            } else {
+                <input type="checkbox" name="newCategoryIds" value="@c.Id"
+                       class="form-check-input" />
+            }
+            @c.Name
+        </label>
+    </div>
+}

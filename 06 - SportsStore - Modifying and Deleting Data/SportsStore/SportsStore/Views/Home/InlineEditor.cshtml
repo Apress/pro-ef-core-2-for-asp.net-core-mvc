@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Product>
+
+<div class="row">
+    <div class="col-1 font-weight-bold">Id</div>
+    <div class="col font-weight-bold">Name</div>
+    <div class="col font-weight-bold">Category</div>
+    <div class="col font-weight-bold">Purchase Price</div>
+    <div class="col font-weight-bold">Retail Price</div>
+</div>
+@{ int i = 0; }
+<form asp-action="UpdateAll" method="post">
+    @foreach (Product p in Model) {
+        <div class="row p-2">
+            <div class="col-1">
+                @p.Id
+                <input type="hidden" name="Products[@i].Id" value="@p.Id" />
+            </div>
+            <div class="col">
+                <input class="form-control" name="Products[@i].Name"
+                       value="@p.Name" />
+            </div>
+            <div class="col">
+                <input class="form-control" name="Products[@i].Category"
+                       value="@p.Category" />
+            </div>
+            <div class="col text-right">
+                <input class="form-control" name="Products[@i].PurchasePrice"
+                       value="@p.PurchasePrice" />
+            </div>
+            <div class="col text-right">
+                <input class="form-control" name="Products[@i].RetailPrice"
+                       value="@p.RetailPrice" />
+            </div>
+
+        </div>
+        i++;
+    }
+    <div class="text-center m-2">
+        <button type="submit" class="btn btn-primary">Save All</button>
+        <a asp-action="Index" class="btn btn-outline-primary">Cancel</a>
+    </div>
+</form>

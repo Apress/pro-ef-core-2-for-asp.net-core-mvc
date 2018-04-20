@@ -1,0 +1,23 @@
+﻿@using ExistingDb.Models.Manual
+@model Shoe
+
+<div class="form-row">
+    <input type="hidden" asp-for="Campaign.Id" />
+    <label><strong>Sales Campaign:</strong></label>
+</div>
+<div class="form-row">
+    <div class="form-group col">
+        <label asp-for="Campaign.Slogan" class="form-control-label"></label>
+        <input asp-for="Campaign.Slogan" class="form-control" />
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col">
+        <label class="form-control-label">Max Discount:</label>
+        <input asp-for="Campaign.MaxDiscount" class="form-control" />
+    </div>
+    <div class="form-group col">
+        <label class="form-control-label">Launch Date:</label>
+        <input type="date" asp-for="Campaign.LaunchDate" class="form-control" />
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿<form id="pageform" method="get" class="form-inline d-inline-block">
+
+    <button name="options.currentPage" value="@(Model.CurrentPage -1)"
+            class="btn btn-outline-primary @(!Model.HasPreviousPage ? "disabled" : "")"
+            type="submit">
+        Previous
+    </button>
+
+    @for (int i = 1; i <= 3 && i <= Model.TotalPages; i++) {
+        <button name="options.currentPage" value="@i" type="submit"
+                class="btn btn-outline-primary @(Model.CurrentPage == i ? "active" : "")">
+            @i
+        </button>
+    }
+    @if (Model.CurrentPage > 3 && Model.TotalPages - Model.CurrentPage >= 3) {
+        @:...
+        <button class="btn btn-outline-primary active">@Model.CurrentPage</button>
+    }
+    @if (Model.TotalPages > 3) {
+        @:...
+        @for (int i = Math.Max(4, Model.TotalPages - 2);
+                                i <= Model.TotalPages; i++) {
+            <button name="options.currentPage" value="@i" type="submit"
+                    class="btn btn-outline-primary
+                   @(Model.CurrentPage == i ? "active" : "")">
+                @i
+            </button>
+        }
+    }
+    <button name="options.currentPage" value="@(Model.CurrentPage +1)" type="submit"
+            class="btn btn-outline-primary @(!Model.HasNextPage? "disabled" : "")">
+        Next
+    </button>
+
+    <select name="options.pageSize" class="form-control ml-1 mr-1">
+        @foreach (int val in new int[] { 10, 25, 50, 100 }) {
+            <option value="@val" selected="@(Model.PageSize == val)">@val</option>
+        }
+    </select>
+    <input type="hidden" name="options.currentPage" value="1" />
+    <button type="submit" class="btn btn-secondary">Change Page Size</button>
+</form>

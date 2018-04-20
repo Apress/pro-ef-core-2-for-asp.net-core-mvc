@@ -1,0 +1,46 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Advanced Features";
+    Layout = "_Layout";
+}
+
+<h4 class="bg-info p-2 text-center text-white">
+    Create/Edit
+</h4>
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label class="form-control-label" asp-for="SSN"></label>
+        <input class="form-control" asp-for="SSN" readonly="@Model.SSN" />
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" asp-for="FirstName"></label>
+        <input class="form-control" asp-for="FirstName"
+               readonly="@Model.FirstName" />
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" asp-for="FamilyName"></label>
+        <input class="form-control" asp-for="FamilyName"
+               readonly="@Model.FamilyName" />
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" asp-for="Salary"></label>
+        <input class="form-control" asp-for="Salary" />
+    </div>
+    <input type="hidden" asp-for="OtherIdentity.Id" />
+    <div class="form-group">
+        <label class="form-control-label">Other Identity Name:</label>
+        <input class="form-control" asp-for="OtherIdentity.Name" />
+    </div>
+    <div class="form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"
+                   asp-for="OtherIdentity.InActiveUse" />
+            In Active Use
+        </label>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+</form>

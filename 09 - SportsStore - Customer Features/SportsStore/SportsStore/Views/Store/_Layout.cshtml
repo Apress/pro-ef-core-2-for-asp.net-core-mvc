@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>SportsStore</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark p-4 text-white">
+            <div class="col-auto"><h4>SPORTS STORE</h4></div>
+            <div class="col"></div>
+            <div class="col-auto text-right">
+                @await Component.InvokeAsync("Cart", Context.Session)
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+</body>
+</html>

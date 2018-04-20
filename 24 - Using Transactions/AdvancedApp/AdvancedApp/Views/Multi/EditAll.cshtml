@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Advanced Features";
+    Layout = "_Layout";
+    int counter = 0;
+}
+
+<h4 class="bg-info p-2 text-center text-white">
+    Edit All
+</h4>
+<form asp-action="UpdateAll" method="post">
+    <div class="container">
+        @foreach (Employee e in Model) {
+            <div class="form-row">
+                <div class="col">
+                    <input class="form-control" name="Employees[@counter].SSN"
+                           value="@e.SSN" readonly />
+                </div>
+                <div class="col">
+                    <input class="form-control" name="Employees[@counter].FirstName"
+                           value="@e.FirstName" readonly />
+                </div>
+                <div class="col">
+                    <input class="form-control" name="Employees[@counter].FamilyName"
+                           value="@e.FamilyName" readonly />
+                </div>
+                <div class="col">
+                    <input class="form-control" name="Employees[@counter].Salary"
+                           value="@e.Salary" />
+                </div>
+            </div>
+            counter++;
+        }
+    </div>
+    <div class="text-center m-2">
+        <button type="submit" class="btn btn-primary">Save All</button>
+        <a class="btn btn-secondary" asp-action="Index"
+           asp-controller="Home">
+            Cancel
+        </a>
+    </div>
+</form>

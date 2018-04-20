@@ -1,0 +1,17 @@
+﻿@using ExistingDb.Models.Manual
+@model Shoe
+
+<input type="hidden" asp-for="Id" />
+<h4>Product Details</h4>
+<div class="p-1 m-1">
+    <div class="form-row">
+        <div class="form-group col">
+            <label asp-for="Name" class="form-control-label"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <label asp-for="Price" class="form-control-label"></label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+    </div>
+</div>

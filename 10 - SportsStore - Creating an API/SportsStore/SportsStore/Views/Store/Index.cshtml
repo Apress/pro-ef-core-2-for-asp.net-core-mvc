@@ -1,0 +1,69 @@
+﻿@model PagedList<Product>
+
+<div class="container-fluid">
+    <div class="row no-gutters">
+        <div class="col-auto">
+            @Html.Partial("Categories", ViewBag.Categories as PagedList<Category>)
+        </div>
+        <div class="col">
+            <div class="container-fluid">
+                <div class="row pt-4 pb-1">
+                    <div class="col text-center">
+                        @Html.Partial("Pages", Model)
+                    </div>
+                </div>
+                <div class="row pt-1 pb-1">
+                    <div class="col"></div>
+                    <div class="col-6 text-center form-group">
+                        <input form="pageform" type="hidden"
+                               name="options.searchpropertyname" value="Name" />
+                        <input form="pageform" name="options.searchterm"
+                               placeholder="Seach..." class="form-control" />
+                    </div>
+                    <div class="col">
+                        <button form="pageform" class="btn btn-secondary"
+                                type="submit">
+                            Search
+                        </button>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                @foreach (Product p in Model) {
+                    <div class="row">
+                        <div class="col">
+                            <div class="card m-1 p-1 bg-light">
+                                <div class="bg-faded p-1">
+                                    <h4>
+                                        @p.Name
+                                        <span class="badge badge-pill badge-primary"
+                                              style="float:right">
+                                            <small>$@p.RetailPrice</small>
+                                        </span>
+                                    </h4>
+                                </div>
+                                <form id="@p.Id" asp-action="AddToCart"
+                                      asp-controller="Cart" method="post">
+                                    <input type="hidden" name="Id" value="@p.Id" />
+                                    <input type="hidden" name="Name"
+                                           value="@p.Name" />
+                                    <input type="hidden" name="RetailPrice"
+                                           value="@p.RetailPrice" />
+                                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                    <span class="card-text p-1">
+                                        @(p.Description
+                                            ?? "(No Description Available")
+                                        <button type="submit"
+                                                class="btn btn-success btn-sm pull-right"
+                                                style="float:right">
+                                            Add To Cart
+                                        </button>
+                                    </span>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

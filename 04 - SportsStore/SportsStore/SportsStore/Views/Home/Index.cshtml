@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Product>
+
+<h3 class="p-2 bg-primary text-white text-center">Products</h3>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Category</div>
+        <div class="col font-weight-bold text-right">Purchase Price</div>
+        <div class="col font-weight-bold text-right">Retail Price</div>
+        <div class="col"></div>
+    </div>
+    <form asp-action="AddProduct" method="post">
+        <div class="row">
+            <div class="col"><input name="Name" class="form-control" /></div>
+            <div class="col"><input name="Category" class="form-control" /></div>
+            <div class="col">
+                <input name="PurchasePrice" class="form-control" />
+            </div>
+            <div class="col">
+                <input name="RetailPrice" class="form-control" />
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </form>
+    @if (Model.Count() == 0) {
+        <div class="row">
+            <div class="col text-center p-2">No Data</div>
+        </div>
+    } else {
+        @foreach (Product p in Model) {
+            <div class="row p-2">
+                <div class="col">@p.Name</div>
+                <div class="col">@p.Category</div>
+                <div class="col text-right">@p.PurchasePrice</div>
+                <div class="col text-right">@p.RetailPrice</div>
+                <div class="col"></div>
+            </div>
+        }
+    }
+</div>

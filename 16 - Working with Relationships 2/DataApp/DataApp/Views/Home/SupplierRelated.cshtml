@@ -1,0 +1,14 @@
+﻿@model DataApp.Models.Supplier
+
+@if (Model?.Products == null) {
+    <tr><td colspan="6" class="text-center table-dark">No Related Data</td></tr>
+} else {
+    @foreach (Product p in Model?.Products) {
+        <tr class="table-dark">
+            <td colspan="3"></td>
+            <td>@p.Name</td>
+            <td>@p.Category</td>
+            <td>@p.Price</td>
+        </tr>
+    }
+}

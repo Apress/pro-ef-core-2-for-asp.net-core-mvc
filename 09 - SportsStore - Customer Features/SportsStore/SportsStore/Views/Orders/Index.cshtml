@@ -1,0 +1,52 @@
+﻿@model  IEnumerable<Order>
+
+<h3 class="p-2 bg-primary text-white text-center">Orders</h3>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-1 font-weight-bold">Id</div>
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Zip</div>
+        <div class="col font-weight-bold">Total</div>
+        <div class="col font-weight-bold">Profit</div>
+        <div class="col-1 font-weight-bold">Status</div>
+        <div class="col-3"></div>
+    </div>
+    <div>
+        <div class="row placeholder p-2">
+            <div class="col-12 text-center">
+                <h5>No Orders</h5>
+            </div>
+        </div>
+        @foreach (Order o in Model) {
+
+            <div class="row p-2">
+                <div class="col-1">@o.Id</div>
+                <div class="col">@o.CustomerName</div>
+                <div class="col">@o.ZipCode</div>
+                <div class="col">
+                    @o.Lines.Sum(l => l.Quantity
+                     * l.Product.RetailPrice)
+            </div>
+            <div class="col">
+                @o.Lines.Sum(l => l.Quantity
+                     * (l.Product.RetailPrice - l.Product.PurchasePrice))
+        </div>
+        <div class="col-1">@(o.Shipped ? "Shipped" : "Pending")</div>
+        <div class="col-3 text-right">
+            <form asp-action="DeleteOrder" method="post">
+                <input type="hidden" name="Id" value="@o.Id" />
+                <a asp-action="EditOrder" asp-route-id="@o.Id"
+                   class="btn btn-outline-primary">Edit</a>
+                <button type="submit" class="btn btn-outline-danger">
+                    Delete
+                </button>
+            </form>
+        </div>
+    </div>
+        }
+    </div>
+</div>
+<div class="text-center">
+    <a asp-action="EditOrder" class="btn btn-primary">Create</a>
+</div>

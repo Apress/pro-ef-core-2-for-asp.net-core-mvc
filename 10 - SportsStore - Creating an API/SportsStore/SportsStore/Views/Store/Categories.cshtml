@@ -1,0 +1,53 @@
+﻿@model PagedList<Category>
+
+<div class="container-fluid mt-4">
+
+    <div class="row no-gutters">
+        <div class="col mt-1">
+            <button form="pageform" name="category" value="0" type="submit"
+                    class="btn btn-block @(ViewBag.SelectedCategory == 0
+                    ? "btn-primary" : "btn-outline-primary")">
+                All
+            </button>
+        </div>
+    </div>
+
+    <div class="row no-gutters mt-4"></div>
+
+    <div class="row no-gutters">
+        <div class="col mt-1">
+            <button form="pageform"
+                    name="catoptions.currentPage" value="@(Model.CurrentPage -1)"
+                    class="btn btn-block btn-outline-secondary
+                        @(!Model.HasPreviousPage ? "disabled" : "")"
+                    type="submit">
+                Previous
+            </button>
+        </div>
+    </div>
+
+    @foreach (Category c in Model) {
+        <div class="row no-gutters">
+            <div class="col mt-1">
+                <button form="pageform" name="category" value="@c.Id"
+                        type="submit"
+                        class="btn btn-block @(ViewBag.SelectedCategory == c.Id
+                        ? "btn-primary" : "btn-outline-primary")">
+                    @c.Name
+                </button>
+            </div>
+        </div>
+    }
+
+    <div class="row no-gutters">
+        <div class="col mt-1">
+            <button form="pageform"
+                    name="catoptions.currentPage" value="@(Model.CurrentPage +1)"
+                    class="btn btn-block btn-outline-secondary
+                        @(!Model.HasNextPage? "disabled" : "")"
+                    type="submit">
+                Next
+            </button>
+        </div>
+    </div>
+</div>

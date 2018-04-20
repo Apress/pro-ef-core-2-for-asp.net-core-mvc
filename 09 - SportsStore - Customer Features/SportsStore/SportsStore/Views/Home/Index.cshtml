@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Product>
+
+<h3 class="p-2 bg-primary text-white text-center">Products</h3>
+
+<div class="text-center">
+    @Html.Partial("Pages", Model)
+    @{
+        ViewBag.searches = new string[] { "Name", "Category.Name" };
+        ViewBag.sorts = new string[] { "Name", "Category.Name",
+            "PurchasePrice", "RetailPrice"};
+    }
+    @Html.Partial("PageOptions", Model)
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-1 font-weight-bold">Id</div>
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Category</div>
+        <div class="col font-weight-bold text-right">Purchase Price</div>
+        <div class="col font-weight-bold text-right">Retail Price</div>
+        <div class="col"></div>
+    </div>
+    @foreach (Product p in Model) {
+        <div class="row p-2">
+            <div class="col-1">@p.Id</div>
+            <div class="col">@p.Name</div>
+            <div class="col">@p.Category.Name</div>
+            <div class="col text-right">@p.PurchasePrice</div>
+            <div class="col text-right">@p.RetailPrice</div>
+            <div class="col">
+                <form asp-action="Delete" method="post">
+                    <a asp-action="UpdateProduct" asp-route-key="@p.Id"
+                       class="btn btn-outline-primary">
+                        Edit
+                    </a>
+                    <input type="hidden" name="Id" value="@p.Id" />
+                    <button type="submit" class="btn btn-outline-danger">
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+    <div class="text-center p-2">
+        <a asp-action="UpdateProduct" asp-route-key="0"
+           class="btn btn-primary">Add</a>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\bin\Debug\netcoreapp2.0\AdvancedApp.deps.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\bin\Debug\netcoreapp2.0\AdvancedApp.runtimeconfig.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\bin\Debug\netcoreapp2.0\AdvancedApp.runtimeconfig.dev.json
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\bin\Debug\netcoreapp2.0\AdvancedApp.dll
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\bin\Debug\netcoreapp2.0\AdvancedApp.pdb
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\obj\Debug\netcoreapp2.0\AdvancedApp.csproj.CoreCompileInputs.cache
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\obj\Debug\netcoreapp2.0\AdvancedApp.AssemblyInfoInputs.cache
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\obj\Debug\netcoreapp2.0\AdvancedApp.AssemblyInfo.cs
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\obj\Debug\netcoreapp2.0\AdvancedApp.dll
+C:\Users\adam\Documents\Books\Pro Entity Framework Core for MVC Developers\Source Code\Current\AdvancedApp\AdvancedApp\obj\Debug\netcoreapp2.0\AdvancedApp.pdb
