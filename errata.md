@@ -76,3 +76,17 @@ The view that presents the pagination controls applies the Bootstrap class to th
 This view adds the `disabled` attribute to the `Previous` and `Next` elements.
 
 (Thanks to Jean-Michel Borel for reporting this problem)
+
+---
+On ***page 154***:
+
+The `Editcategory` action on the `Categories` controller should receive a `QueryOptions` object from the request and pass it on to its view, as follows:
+
+    public IActionResult EditCategory(long id, QueryOptions options) {
+        ViewBag.EditId = id;
+        return View("Index", repository.GetCategories(options));
+    } 
+
+Without this change, attempting to edit a category will produce an error.
+
+(Thanks to Phil Marshall for reporting this problem)
