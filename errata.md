@@ -78,6 +78,15 @@ This view adds the `disabled` attribute to the `Previous` and `Next` elements.
 (Thanks to Jean-Michel Borel for reporting this problem)
 
 ---
+On ***page 143***:
+
+The `TotalPages`value is not calculated correctly, which means that the last page of objects will not be displayed if it contains less than `PageSize` items. Use this statement instead in *Listing 8-5*:
+
+    TotalPages =  (int)Math.Ceiling(((double)query.Count()) / PageSize);
+
+(Thanks to Phil Marshall and Boda Gábo for reporting this problem)
+
+---
 On ***page 154***:
 
 The `Editcategory` action on the `Categories` controller should receive a `QueryOptions` object from the request and pass it on to its view, as follows:
