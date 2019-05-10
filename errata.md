@@ -99,3 +99,10 @@ The `Editcategory` action on the `Categories` controller should receive a `Query
 Without this change, attempting to edit a category will produce an error.
 
 (Thanks to Phil Marshall for reporting this problem)
+
+---
+On ***page 425***:
+
+The description of the changes that follows Table 17-8 refers to am `OutOfStock` column that is not part of the example. The text should refer to the `FittingId` column, whose key relationship with the `Fittings` table prevents the application from being able to store objects.
+
+(Thanks to John Mendler for reporting this problem)
